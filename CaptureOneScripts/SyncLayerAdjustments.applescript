@@ -10,13 +10,12 @@ tell application "Capture One"
 			return
 		end if
 		set curLayer to current layer of primary variant
-		set curLayerName to name of curLayer
-		set curLayerAdjustments to adjustments of curLayer
-		
 		if kind of curLayer is background then
 			display alert "Could not sync image layer" message "Please selected an image layer to synchronize"
 			return
 		end if
+		set curLayerName to name of curLayer
+		set curLayerAdjustments to adjustments of curLayer
 		
 		repeat with img in selectedImages
 			set imgLayers to (layers of img whose kind is not background)
